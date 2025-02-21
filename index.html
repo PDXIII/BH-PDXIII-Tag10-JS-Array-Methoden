@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Arrays Methoden</title>
+  </head>
+  <body>
+    <h1>JS Arrays Methoden (Obst)</h1>
+
+    <h2>1. Übung und Wiederholung</h2>
+    <ol>
+        <li>
+            Bitte erstellt einen Array mit zwei Städten. Gebt den Array in der Konsole aus.
+        </li>
+        <li>
+            Dann fügt eine neue Stadt am Ende hinzu
+        </li>
+        <li>
+            Dann fügt eine weiter Stadt am Anfang hinzu.
+        </li>
+        <li>
+            Gebt den mutierten Array in der Konsole aus.
+        </li>
+        <li>
+            Dannach entfernt bitte wieder die beiden Städte und gebt wiederum den
+            Array aus.
+        </li>
+    </ol>
+
+    <script>
+        let obst = ["Apfel", "Birne", "Orange", "Banane", "Kirsche"];
+        // console.log(obst);
+
+        obst.push("Ananas");
+        // console.log(obst);
+
+        obst.unshift("Avocado");
+        // console.log(obst);
+
+        let frucht01 = obst.shift();
+        // array.shift() entfernt das erste Element und gibt es zurück.
+        // console.log(obst);
+        // console.log(frucht01);
+
+        let frucht02 = obst.pop();
+        // array.pop() entfernt das letzte Element und gibt es zurück.
+        // console.log(obst);
+        // console.log(frucht02);
+
+        let cart = obst.slice(2, 4);
+        // manipuliert nicht den original Array
+        // aber gibt die ausgeschittenen Elemente als Array zurück.
+        // array.slice(index, endIndex)
+
+        // console.log(obst);
+        // console.log(cart);
+
+        let cart02 = obst.splice(2, 1, "Kiwi", "Melone"); 
+        // manipuliert den original Array 
+        // und gibt die ausgeschittenen Elemente als Array zurück.
+        // array.splice(index, deleteCount, item1, item2, item3)
+        // console.log(obst);
+        // console.log(cart02);
+
+        // console.log(obst.indexOf("Kiwi"));
+
+        function returnFruitByNamePlusNextOne(fruitName) {
+            let index = obst.indexOf(fruitName);
+            console.log(index);
+            return obst.slice(index, index + 2);
+        }
+
+        console.log(returnFruitByNamePlusNextOne("Kiwi"));
+
+        // console.log(obst);
+
+        function removeFruitByNamePlusNextOne(fruitName) {
+            let index = obst.indexOf(fruitName);
+            console.log(index);
+            return obst.splice(index, 2);
+        }
+
+        // console.log(removeFruitByNamePlusNextOne("Kiwi"));
+
+        // console.log(obst);
+
+        // neue Obstlieferung
+        let neuesObst = ["Mango", "Pfirsich", "Kokosnuss"];
+
+        // So kann man das machen
+        // function addFruits (lieferung, bestand) {
+        //     for(let i = 0; i < lieferung.length; i++) {
+        //         bestand.push(lieferung[i]);
+        //     }
+        // }
+        // function addFruitsSimple (lieferung, bestand) {
+        //     for(let fruit of lieferung) {
+        //         bestand.push(fruit);
+        //     }
+        // }
+
+        // addFruits(neuesObst, obst);
+        // addFruitsSimple(neuesObst, obst);
+        // console.log(obst);
+
+
+        // ist viel besser!
+        obst = obst.concat(neuesObst);
+
+        // console.log(obst);
+
+        // let obstText = obst.join(", ");
+        // console.log(obstText);
+
+        let nummern = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        console.log(nummern);
+
+        // array.forEach()
+
+        nummern.forEach(function (nummer) {
+            console.log(nummer * 2)
+        });
+
+        console.log(nummern);
+
+        // array.map()
+
+        let neueNummern = nummern.map(function (nummer) {
+            return nummer * 2;
+        });
+
+        console.log(neueNummern);
+
+        // array.filter()
+
+        let vielfachesVonDrei = nummern.filter(function (nummer) {
+            return nummer % 3 === 0;
+        });
+
+        console.log(vielfachesVonDrei);
+        console.log(nummern);
+
+        // array.reduce()
+
+        let summe = nummern.reduce( function (summe, nummer) {
+            return summe + nummer;
+        }, 0);
+
+        console.log(summe);
+
+        // let sum = nummern.reduce( function (acc, nummer) {
+        //     return acc + nummer;
+        // }, 0);
+
+
+
+    </script>
+  </body>
+</html>
