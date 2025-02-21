@@ -446,7 +446,9 @@ checkDivisible.forEach(num => console.log(num % 3 === 0));
 
 ```js
 let numbers = [1, 2, 3, 4, 5];
-let doubled = numbers.map(num => num * 2);
+let doubled = numbers.map(function(num) {
+  return num * 2
+});
 console.log(doubled); // [2, 4, 6, 8, 10]
 ```
 
@@ -460,14 +462,20 @@ console.log(doubled); // [2, 4, 6, 8, 10]
 
 ```js
 let numbers = [10, 20, 30];
-let plusFive = numbers.map(num => num + 5);
+let plusFive = numbers.map(function {num} {
+  num + 5
+});
 console.log(plusFive); // [15, 25, 35]
 
-let evenCheck = [1, 2, 3, 4, 5].map(num => num % 2 === 0);
+let evenCheck = [1, 2, 3, 4, 5].map(function(num) {
+  return num % 2 === 0
+});
 console.log(evenCheck); // [false, true, false, true, false]
 
 let names = ["Tom", "Max", "Lisa"];
-let nameLengths = names.map(name => name.length);
+let nameLengths = names.map(function(name) {
+  name.length
+});
 console.log(nameLengths); // [3, 3, 4]
 ```
 
@@ -477,7 +485,9 @@ console.log(nameLengths); // [3, 3, 4]
 
 ```js
 let numbers = [1, 2, 3, 4, 5];
-let evenNumbers = numbers.filter(num => num % 2 === 0);
+let evenNumbers = numbers.filter(function(num) {
+  return num % 2 === 0
+});
 console.log(evenNumbers); // [2, 4]
 ```
 
@@ -491,15 +501,21 @@ console.log(evenNumbers); // [2, 4]
  
 ```js
 let nums = [5, 12, 18, 2];
-let overTen = nums.filter(num => num > 10);
+let overTen = nums.filter(function(num) {
+  return num > 10
+});
 console.log(overTen); // [12, 18]
 
 let names = ["Anna", "Ben", "Alex", "Clara"];
-let filteredNames = names.filter(name => name.startsWith("A"));
+let filteredNames = names.filter(function(name) {
+  name.startsWith("A")
+});
 console.log(filteredNames); // ["Anna", "Alex"]
 
 let values = [1, null, "Hello", undefined, 5];
-let cleanValues = values.filter(value => value != null);
+let cleanValues = values.filter(function(value) {
+  return value != null
+});
 console.log(cleanValues); // [1, "Hello", 5]
 ```
 
@@ -509,7 +525,9 @@ console.log(cleanValues); // [1, "Hello", 5]
  
 ```js
 let numbers = [1, 2, 3, 4, 5];
-let sum = numbers.reduce((acc, num) => acc + num, 0);
+let sum = numbers.reduce(function(acc, num) {
+  return acc + num
+}, 0);
 console.log(sum); // 15
 ```
 
@@ -523,14 +541,20 @@ console.log(sum); // 15
 
 ```js
 let numbers = [2, 3, 4];
-let product = numbers.reduce((acc, num) => acc * num, 1);
+let product = numbers.reduce(function(acc, num) {
+  return acc * num
+}, 1);
 console.log(product); // 24
 
-let maxNum = [10, 5, 20, 8].reduce((max, num) => num > max ? num : max, 0);
+let maxNum = [10, 5, 20, 8].reduce(function(max, num) {
+  num > max ? num : max
+}, 0);
 console.log(maxNum); // 20
 
 let words = ["JavaScript", "ist", "super"];
-let sentence = words.reduce((acc, word) => acc + " " + word);
+let sentence = words.reduce(function(acc, word) {
+  return acc + " " + word
+});
 console.log(sentence); // "JavaScript ist super"
 ```
 
@@ -547,7 +571,11 @@ let matrix = [
   [7, 8, 9]
 ];
 
-matrix.forEach(row => row.forEach(num => console.log(num)));
+matrix.forEach(functio(row) {
+  row.forEach(function(num) {
+    console.log(num)
+  });
+});
 ```
 
 ### **📝 Übungen:** 
@@ -564,10 +592,18 @@ let matrix = [
   [3, 4]
 ];
 
-let sum = matrix.reduce((acc, row) => acc + row.reduce((a, b) => a + b), 0);
+let sum = matrix.reduce(function(acc, row) {
+  return acc + row.reduce(function(a, b) {
+    return a + b
+  });
+}, 0);
 console.log(sum); // 10
 
-let newMatrix = matrix.map(row => row.map(num => num + 10));
+let newMatrix = matrix.map(function(row) {
+  return row.map(function(num) {
+    num + 10
+  });
+});
 console.log(newMatrix); // [[11, 12], [13, 14]]
 ```
 
